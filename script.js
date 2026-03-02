@@ -6,7 +6,9 @@ window.addEventListener("load", function () {
     elemekFormazasa();
     esemenyKezeles1();
     esemenyKezeles2();
-    esemenyKezeles3(feladatElem);
+    /*elelmekElerese3(kepElem);*/
+    esemenyKezeles4();
+    //feladat8();
 
 });
 
@@ -56,18 +58,20 @@ function esemenyKezeles2() {
     const feladatElem=document.querySelectorAll(".feladat") [0]
     feladatElem.innerHTML="<button>OK</button>";
     const gombElem=document.querySelectorAll(".feladat button") [0];
+
+    const kepElem = feladatElem.querySelector("img");
     
     gombElem.addEventListener("click", function () {
         feladatElem.innerHTML +=`<div>
-        <img src="https://paradepets.com/.image/w_640,q_auto:good,c_limit/NTowMDAwMDAwMDAwMDQyNDA2/smoke-black-maine-coon.jpg?arena_f_auto" alt="random kép"></div>`;
+        <img id="kep" src="https://paradepets.com/.image/w_640,q_auto:good,c_limit/NTowMDAwMDAwMDAwMDQyNDA2/smoke-black-maine-coon.jpg?arena_f_auto" alt="random kép"></div>`;
     });
 
-    const kepElem = feladatElem.querySelector("img");
-
-    esemenyKezeles3(kepElem);
 }
 
+/*
 function esemenyKezeles3(kepElem) {
+
+    const img = document.getElementById("kep");
 
     kepElem.addEventListener("mouseover", function () {
         kepElem.style.transform = "scale(1.2)";
@@ -77,3 +81,32 @@ function esemenyKezeles3(kepElem) {
         kepElem.style.transform = "scale(1)";
     })
 }
+*/
+
+function esemenyKezeles4() {
+    const elem = document.getElementsByClassName("elem");
+    const megjelenito = document.getElementsByClassName("megjelenito")[0];
+
+    for (let index = 0; index < elem.length; index++) {
+        elem[index].addEventListener("click", function() {
+            megjelenito.innerHTML += elem[index].innerHTML;
+        })
+    }
+}
+
+/*
+function feladat8(){
+    // tanárnőt megkérdezni, mi a különbsélg a kettő között, miért nenm futott le először az eseménykezelés4, de a feladat8 igen, ctr x, ctr v után pedig mindkettő???
+    
+    HTMLCollection-t - nem tudom mi ez, de nekem ez marad lista , tömb 
+    const elemek=document.getElementsByClassName("elem");
+    const megjelenito=document.getElementsByClassName("megjelenito")[0];
+
+    for (let index = 0; index < elemek.length; index++) {
+        elemek[index].addEventListener("click",function(){
+            megjelenito.innerHTML+=elemek[index].innerHTML
+
+        });
+    }
+}
+*/
